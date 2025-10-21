@@ -155,16 +155,6 @@ public class CustomerController : ControllerBase
         return CreatedAtAction(nameof(GetCustomer), new { id = registeredCustomer.Id }, registeredCustomer);
     }
 
-    /// <summary>
-    /// Get all customers
-    /// GET /api/customer
-    /// Response: List of all customers
-    /// </summary>
-    [HttpGet]
-    public async Task<ActionResult<List<Customer>>> GetAllCustomers()
-    {
-        var customers = await _customerRepository.GetAllAsync();
-        return Ok(customers);
-    }
+
 }
 
