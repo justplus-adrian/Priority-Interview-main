@@ -1,3 +1,5 @@
+using InterviewApi.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
@@ -26,8 +28,10 @@ builder.Services.AddCors(options =>
     });
 });
 
-// TODO: Register your services here using Dependency Injection
-// Example: builder.Services.AddScoped<ICustomerService, CustomerService>();
+// Register repositories as singletons
+builder.Services.AddSingleton<ICustomerRepository, CustomerRepository>();
+builder.Services.AddSingleton<IHotelRepository, HotelRepository>();
+builder.Services.AddSingleton<IVisitationRepository, VisitationRepository>();
 
 var app = builder.Build();
 
